@@ -227,19 +227,18 @@ jobs:
           cd Assets/Unversioned
           git annex init
           
-      - name: Test Unversioned annex
-        run: |
-          cd Assets/Unversioned
-          find . -type f | cut -d/ -f2 | sort | uniq -c
-          git annex list "Epic Toon FX/Materials/Basics/glow5_ADD.mat"
-          git annex info
-          cat ./.git/annex/index
+      # - name: Test Unversioned annex
+      #   run: |
+      #     cd Assets/Unversioned
+      #     find . -type f | cut -d/ -f2 | sort | uniq -c
+      #     git annex list "Epic Toon FX/Materials/Basics/glow5_ADD.mat"
+      #     git annex info
+      #     cat ./.git/annex/index
           
       - name: Enable annex special remotes
         run: |
           cd Assets/Unversioned
           git annex enableremote cloud-s3
-          git annex enableremote cloud
           echo ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             
       - name: Restore Unversioned cache 📂
