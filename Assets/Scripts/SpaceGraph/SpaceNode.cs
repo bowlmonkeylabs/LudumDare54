@@ -1,3 +1,4 @@
+using System;
 using BML.Scripts.Utils;
 using UnityEngine;
 
@@ -30,7 +31,8 @@ namespace BML.Scripts.SpaceGraph
         Generous,
     }
 
-    public class SpaceNode
+    [Serializable]
+    public class SpaceNode : IEquatable<SpaceNode>
     {
         public Vector3 LocalPosition;
         public PopulationDensity PopulationDensity;
@@ -56,6 +58,36 @@ namespace BML.Scripts.SpaceGraph
             FuelSupply = fuelSupply;
             Disposition = disposition;
             RandomRoll = randomRoll;
+        }
+
+        public bool Equals(SpaceNode other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return LocalPosition.Equals(other.LocalPosition);
+            // return LocalPosition.Equals(other.LocalPosition) && PopulationDensity == other.PopulationDensity && SoilFertility == other.SoilFertility && FuelSupply == other.FuelSupply && Disposition == other.Disposition && RandomRoll.Equals(other.RandomRoll);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((SpaceNode)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = LocalPosition.GetHashCode();
+                hashCode = (hashCode * 397) ^ (int)PopulationDensity;
+                hashCode = (hashCode * 397) ^ (int)SoilFertility;
+                hashCode = (hashCode * 397) ^ (int)FuelSupply;
+                hashCode = (hashCode * 397) ^ (int)Disposition;
+                hashCode = (hashCode * 397) ^ RandomRoll.GetHashCode();
+                return hashCode;
+            }
         }
     }
 }

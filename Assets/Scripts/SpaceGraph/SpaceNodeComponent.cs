@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace BML.Scripts.SpaceGraph
@@ -6,13 +7,27 @@ namespace BML.Scripts.SpaceGraph
     {
         #region Inspector
 
-        [SerializeField] private SpaceNode _spaceNode;
+        [TitleGroup("Instance params")]
+        [SerializeField] public SpaceNode SpaceNode;
 
         #endregion
 
         #region Unity lifecycle
 
         
+
+        #endregion
+
+        #region Public interface
+
+        public void Init(SpaceNode spaceNode)
+        {
+            this.SpaceNode = spaceNode;
+            
+            // Position and align
+            this.transform.localPosition = spaceNode.LocalPosition;
+            this.transform.rotation = Quaternion.identity;
+        }
 
         #endregion
     }

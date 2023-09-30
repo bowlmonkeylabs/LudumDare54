@@ -1,7 +1,9 @@
+using System;
 using QuikGraph;
 
 namespace BML.Scripts.SpaceGraph
 {
+    [Serializable]
     public class SpaceNodeEdge : IEdge<SpaceNode>
     {
         public SpaceNode Source { get; }
