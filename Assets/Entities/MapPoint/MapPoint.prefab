@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 27955181941943184}
+  - component: {fileID: 3851810130586199834}
   - component: {fileID: 27955181941943185}
   - component: {fileID: 7471623850325399574}
-  - component: {fileID: 3851810130586199834}
   m_Layer: 0
   m_Name: MapPoint
   m_TagString: Untagged
@@ -30,12 +30,59 @@ Transform:
   m_LocalPosition: {x: -0.24324417, y: 1.99, z: -2.6516342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2226213926544525747}
   - {fileID: 9182711872165186704}
   - {fileID: 942800866015923133}
-  - {fileID: 2226213926544525747}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3851810130586199834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27955181941943188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5060d4b21643c5a78b43d9b95c8fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sphere: {fileID: 6744463659562477930}
+  _hoverInteraction: {fileID: 7471623850325399574}
+  _colorExplored: {r: 0.3270737, g: 0.3962264, b: 0.3532576, a: 1}
+  _colorReachable: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+  _colorHoverReachable: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+  _colorUnreachable: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+  _onNavigate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c6cd0ebaf46aa304ca149457097dc851, type: 2}
+        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.DynamicGameEvent,
+          ScriptableObjectSystem
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 27955181941943184}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 48f2294361ca37344bf3bdd81438f961, type: 2}
+        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Variables.IntVariable,
+          ScriptableObjectSystem
+        m_MethodName: Increment
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &27955181941943185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,9 +98,9 @@ MonoBehaviour:
   _interactionReceived:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538768599798375442}
-        m_TargetAssemblyTypeName: TransformDistanceCheck, BML.Scripts
-        m_MethodName: PerformCheck
+      - m_Target: {fileID: 3851810130586199834}
+        m_TargetAssemblyTypeName: BML.Scripts.SpaceGraph.SpaceNodeComponent, BML.Scripts.SpaceGraph
+        m_MethodName: TryNavigate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -93,25 +140,6 @@ MonoBehaviour:
   _exitInteractionReceived:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3851810130586199834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27955181941943188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5060d4b21643c5a78b43d9b95c8fbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpaceNode:
-    PopulationDensity: 0
-    SoilFertility: 0
-    FuelSupply: 0
-    Disposition: 0
-    RandomRoll: 0
-  _sphere: {fileID: 6744463659562477930}
 --- !u!1 &2588315915170634021
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +170,7 @@ Transform:
   m_Children:
   - {fileID: 584510198689537326}
   m_Father: {fileID: 27955181941943184}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4222061174952527246
 MonoBehaviour:
@@ -235,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &942800866015923133
 Transform:
   m_ObjectHideFlags: 0
@@ -249,7 +277,7 @@ Transform:
   m_Children:
   - {fileID: 7846821680026307140}
   m_Father: {fileID: 27955181941943184}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1538768599798375442
 MonoBehaviour:
@@ -320,7 +348,7 @@ GameObject:
   - component: {fileID: 1188237854078605460}
   - component: {fileID: 3040945803289275742}
   m_Layer: 0
-  m_Name: Mesh
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -338,7 +366,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 27955181941943184}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6744463659562477930
 MonoBehaviour:
@@ -353,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshOutOfDate: 1
-  blendMode: 1
+  blendMode: 0
   scaleMode: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   zTest: 4
@@ -388,7 +416,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 628f131798f2fca4fbfa6881a9f300f3, type: 2}
+  - {fileID: 2100000, guid: f6ee19c96066bc444a5cc1a12233dfe6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

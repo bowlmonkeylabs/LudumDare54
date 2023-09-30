@@ -1,5 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3043927314755961054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1082991839358390447}
+  - component: {fileID: 4910865910466406772}
+  m_Layer: 0
+  m_Name: MOVE PLAYER ON START
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1082991839358390447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043927314755961054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8891591187312575624}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4910865910466406772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043927314755961054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bcc561d61138de47bdb32d717cd44c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnityEvents:
+  - UnityCallback: 1
+    randomDelay: 0
+    delay: 0
+    delayMin: 0
+    delayMax: 0
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5652711203144861698}
+          m_TargetAssemblyTypeName: BML.Scripts.SpaceGraph.SpaceNodeComponent, BML.Scripts.SpaceGraph
+          m_MethodName: DoNavigate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &8864797124010012440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,3 +133,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+--- !u!4 &8891591187312575624 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 27955181941943184, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+  m_PrefabInstance: {fileID: 8864797124010012440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5652711203144861698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3851810130586199834, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+  m_PrefabInstance: {fileID: 8864797124010012440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5060d4b21643c5a78b43d9b95c8fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -34,15 +34,21 @@ namespace BML.Scripts.SpaceGraph
     [Serializable]
     public class SpaceNode : IEquatable<SpaceNode>
     {
+        // Core properties. Set on Init and shouldn't be modified after.
         public SpaceGraph ParentGraph { get; }
         public Vector3 LocalPosition { get; }
+        public float RandomRoll { get; }
+        public PopulationDensity PopulationDensity { get; }
+        public SoilFertility SoilFertility { get; }
+        public FuelSupply FuelSupply { get; }
+        public Disposition Disposition { get; }
         
-        public PopulationDensity PopulationDensity;
-        public SoilFertility SoilFertility;
-        public FuelSupply FuelSupply;
-        public Disposition Disposition;
-        
-        public float RandomRoll;
+        // Runtime data. Clear on Init.
+        public int PlayerDistance { get; set; } = -1;
+        public bool PlayerOccupied { get; set; } = false;
+        public bool PlayerOccupiedAdjacent { get; set; } = false;
+        public bool PlayerVisited { get; set; } = false;
+        public bool PlayerVisitedAdjacent { get; set; } = false;
 
         public SpaceNode(SpaceGraph parentGraph, Vector3 localPosition, float randomRoll)
         {
@@ -64,6 +70,8 @@ namespace BML.Scripts.SpaceGraph
             Disposition = disposition;
             RandomRoll = randomRoll;
         }
+
+        #region IEquatable
 
         public bool Equals(SpaceNode other)
         {
@@ -95,6 +103,11 @@ namespace BML.Scripts.SpaceGraph
             }
         }
 
+        #endregion
+
+        #region Parent graph helpers
+        // Helper functions that work with the parent graph data
+
         public bool IsStartNode()
         {
             return this.Equals(ParentGraph?.Start);
@@ -104,5 +117,7 @@ namespace BML.Scripts.SpaceGraph
         {
             return this.Equals(ParentGraph?.End);
         }
+
+        #endregion
     }
 }
