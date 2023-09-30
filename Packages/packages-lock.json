@@ -214,7 +214,7 @@
       }
     },
     "org.nuget.quikgraph": {
-      "version": "2.3.0",
+      "version": "2.5.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
