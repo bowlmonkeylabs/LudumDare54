@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MouseOver",
+                    "type": "Value",
+                    "id": "cbc1fbc9-c5f0-43c1-9a8c-9c786f85de96",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -238,6 +247,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b688a77f-a54f-4049-bf74-05bafccdaa5f",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseOver",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

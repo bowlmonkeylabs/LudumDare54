@@ -60,6 +60,10 @@ namespace BML.ScriptableObjectCore.Scripts.Events
             this.Raise((object) obj);
         }
 
+        public void Raise(Transform obj) {
+            this.Raise((object) obj);
+        }
+
         public void Raise(System.Object obj)
         {
             OnUpdate?.Invoke(previous, obj);

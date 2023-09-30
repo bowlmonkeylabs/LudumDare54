@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 27955181941943186}
   - component: {fileID: 27955181941943189}
   - component: {fileID: 27955181941943185}
-  - component: {fileID: 3516309447663761197}
+  - component: {fileID: 7471623850325399574}
   m_Layer: 0
   m_Name: MapPoint
   m_TagString: Untagged
@@ -31,7 +31,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.24324417, y: 1.99, z: -2.6516342}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 9182711872165186704}
+  - {fileID: 942800866015923133}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,10 +114,9 @@ MonoBehaviour:
   _interactionReceived:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: db1f4772aaa982744ae2c0be3ca5179c, type: 2}
-        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.GameEvent,
-          ScriptableObjectSystem
-        m_MethodName: Raise
+      - m_Target: {fileID: 1538768599798375442}
+        m_TargetAssemblyTypeName: TransformDistanceCheck, BML.Scripts
+        m_MethodName: PerformCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -125,7 +126,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3516309447663761197
+--- !u!114 &7471623850325399574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +135,264 @@ MonoBehaviour:
   m_GameObject: {fileID: 27955181941943188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9360f91602ba8447b92f8f6e9b062af, type: 3}
+  m_Script: {fileID: 11500000, guid: c0492c993013f6f41aeefdb7753a8219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _traits: 
+  _enterInteractionReceived:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4222061174952527246}
+        m_TargetAssemblyTypeName: TransformDistanceCheck, BML.Scripts
+        m_MethodName: PerformCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _exitInteractionReceived:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &2588315915170634021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9182711872165186704}
+  - component: {fileID: 4222061174952527246}
+  m_Layer: 0
+  m_Name: Hover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9182711872165186704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588315915170634021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 584510198689537326}
+  m_Father: {fileID: 27955181941943184}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4222061174952527246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588315915170634021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa216b4a0e448a46b17cfab89740fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transformOne: {fileID: 27955181941943184}
+  _transformTwo: {fileID: 11400000, guid: c00d407f804ff6b4093f702c57d37b49, type: 2}
+  _distanceToCheck:
+    ReferenceTypeSelector: 1
+    ConstantValue: 0
+    ReferenceValue_FloatVariable: {fileID: 11400000, guid: 98d4f08f4c6e7f640b8ca12bfb92172d, type: 2}
+    ReferenceValue_IntVariable: {fileID: 0}
+    ReferenceValue_EvaluateCurveVariable: {fileID: 0}
+    ReferenceValue_BoolVariable: {fileID: 0}
+    ReferenceValue_FunctionVariable: {fileID: 0}
+  _equalityCheck: 1
+  _onSucceed:
+    m_PersistentCalls:
+      m_Calls: []
+  _onFail:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &4167862692368806696
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 584510198689537326}
+  - component: {fileID: 5216551938193614798}
+  m_Layer: 0
+  m_Name: NameContainer(EditorOnly)
+  m_TagString: EditorOnly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &584510198689537326
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167862692368806696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9182711872165186704}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5216551938193614798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167862692368806696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190d9e9918d0aaf48a103a2bb6995059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOverride: HoverCheckPlayerShipRange
+  tooltipOverride: 
+  target: {fileID: 4222061174952527246}
+--- !u!1 &4743053816737612512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 942800866015923133}
+  - component: {fileID: 1538768599798375442}
+  m_Layer: 0
+  m_Name: Click
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &942800866015923133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743053816737612512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7846821680026307140}
+  m_Father: {fileID: 27955181941943184}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1538768599798375442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743053816737612512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa216b4a0e448a46b17cfab89740fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transformOne: {fileID: 27955181941943184}
+  _transformTwo: {fileID: 11400000, guid: c00d407f804ff6b4093f702c57d37b49, type: 2}
+  _distanceToCheck:
+    ReferenceTypeSelector: 1
+    ConstantValue: 0
+    ReferenceValue_FloatVariable: {fileID: 11400000, guid: 98d4f08f4c6e7f640b8ca12bfb92172d, type: 2}
+    ReferenceValue_IntVariable: {fileID: 0}
+    ReferenceValue_EvaluateCurveVariable: {fileID: 0}
+    ReferenceValue_BoolVariable: {fileID: 0}
+    ReferenceValue_FunctionVariable: {fileID: 0}
+  _equalityCheck: 1
+  _onSucceed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c6cd0ebaf46aa304ca149457097dc851, type: 2}
+        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.DynamicGameEvent,
+          ScriptableObjectSystem
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 27955181941943184}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 48f2294361ca37344bf3bdd81438f961, type: 2}
+        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Variables.IntVariable,
+          ScriptableObjectSystem
+        m_MethodName: Increment
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFail:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &8087818858952619898
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7846821680026307140}
+  - component: {fileID: 8704996421403856091}
+  m_Layer: 0
+  m_Name: NameContainer(EditorOnly)
+  m_TagString: EditorOnly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7846821680026307140
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087818858952619898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 942800866015923133}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8704996421403856091
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087818858952619898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190d9e9918d0aaf48a103a2bb6995059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOverride: ClickShipDistanceCheck
+  tooltipOverride: 
+  target: {fileID: 1538768599798375442}
