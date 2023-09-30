@@ -20,7 +20,10 @@ MonoBehaviour:
   TriggerVariables: []
   BoolVariables:
   - {fileID: 11400000, guid: 3975cff0b522fb945a1344e66029a983, type: 2}
-  IntVariables: []
+  IntVariables:
+  - {fileID: 11400000, guid: 770ef6b2c0a222f42875f9304edd1359, type: 2}
+  - {fileID: 11400000, guid: 48f2294361ca37344bf3bdd81438f961, type: 2}
+  - {fileID: 11400000, guid: b8d3bb3e581368b4086c710fd99abd52, type: 2}
   FloatVariables: []
   Vector2Variables: []
   Vector3Variables: []

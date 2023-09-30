@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "Click",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "de7cc7d7-0e5d-44b3-9c25-fd1d8549b2e7",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -237,28 +237,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "64ed9db8-6ad8-40d8-9ec9-e74afadeedec",
-                    "path": "<Pen>/tip",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b235b127-836d-4520-9120-280509071a9f",
-                    "path": "<Touchscreen>/touch*/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
