@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Mono.CSharp;
 using UnityEditor;
 using UnityEngine;
@@ -48,6 +49,27 @@ namespace BML.Scripts.Utils
             newGameObject = GameObject.Instantiate(prefab, parent);
 #endif
             return newGameObject;
+        }
+        
+        public static void SafeDestroy(GameObject gameObject)
+        {
+            if (ApplicationUtils.IsPlaying_EditorSafe)
+            {
+                GameObject.Destroy(gameObject);
+            }
+            else
+            {
+                GameObject.DestroyImmediate(gameObject);
+            }
+        }
+
+        public static void DestroyChildren(Transform parent)
+        {
+            var children = Enumerable.Range(0, parent.childCount).Select(parent.GetChild).ToList();
+            foreach (var childTransform in children)
+            {
+                SafeDestroy(childTransform.gameObject);
+            }
         }
     }
 }
