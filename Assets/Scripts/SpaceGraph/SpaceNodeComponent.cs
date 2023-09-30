@@ -1,3 +1,4 @@
+using Shapes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace BML.Scripts.SpaceGraph
 
         [TitleGroup("Instance params")]
         [SerializeField] public SpaceNode SpaceNode;
+        
+        [TitleGroup("Prefab params")]
+        [SerializeField] private Sphere _sphere;
 
         #endregion
 

@@ -29,6 +29,8 @@ namespace BML.Scripts.SpaceGraph
         [SerializeField] private SafeTransformValueReference _sceneContainer;
         [SerializeField, AssetsOnly] private GameObject _spaceNodePrefab;
         [SerializeField, AssetsOnly] private GameObject _spaceNodeEdgePrefab;
+        [SerializeField, AssetsOnly] private GameObject _startNodePrefab;
+        [SerializeField, AssetsOnly] private GameObject _endNodePrefab;
 
         [TitleGroup("Result")]
         [SerializeField, ReadOnly]
@@ -162,6 +164,7 @@ namespace BML.Scripts.SpaceGraph
                     .Select(v => v.Position)
                 ).Distinct()
                 .Select(position => new SpaceNode(
+                    _spaceGraph,
                     VectorUtils.Vector2FromDoubleArray(position).xoy(),
                     EnumUtils.Random<PopulationDensity>(Random.value),
                     EnumUtils.Random<SoilFertility>(Random.value),
@@ -183,12 +186,19 @@ namespace BML.Scripts.SpaceGraph
                         var targetNode = distinctCellVertices.Find(node =>
                             node.LocalPosition.Equals(VectorUtils.Vector2FromDoubleArray(targetVertex.Position).xoy()));
                         
-                        return new SpaceNodeEdge(sourceNode, targetNode);
+                        return new SpaceNodeEdge(_spaceGraph, sourceNode, targetNode);
                     }));
             // These methods should handle de-duping internally
             _spaceGraph.AddVertexRange(distinctCellVertices);
             _spaceGraph.AddEdgeRange(allCellEdges);
             
+            // Pick the left-most node as the START
+            _spaceGraph.Start = _spaceGraph.Vertices.OrderBy(node => node.LocalPosition.x).First();
+            // Pick the right-most node as the END
+            _spaceGraph.End = _spaceGraph.Vertices.OrderByDescending(node => node.LocalPosition.x).First();
+            
+            #warning TODO ensure its traversable start to end
+
             GenerateSceneObjects();
         }
 
@@ -222,8 +232,19 @@ namespace BML.Scripts.SpaceGraph
             // Spawn objects for vertices
             foreach (var spaceNode in _spaceGraph.Vertices)
             {
+                // Pick object to spawn (normal node, start node, end node, etc.)
+                GameObject prefabToSpawn = _spaceNodePrefab;
+                if (spaceNode.IsStartNode())
+                {
+                    prefabToSpawn = _startNodePrefab;
+                } 
+                else if (spaceNode.IsEndNode())
+                {
+                    prefabToSpawn = _endNodePrefab;
+                }
+                
                 // Instantiate object
-                var spaceNodeSceneObject = GameObjectUtils.SafeInstantiate(true, _spaceNodePrefab, _sceneContainer.Value);
+                var spaceNodeSceneObject = GameObjectUtils.SafeInstantiate(true, prefabToSpawn, _sceneContainer.Value);
                 
                 // Position and align
                 var worldPosition = GetWorldPosition(spaceNode);

@@ -34,15 +34,19 @@ namespace BML.Scripts.SpaceGraph
     [Serializable]
     public class SpaceNode : IEquatable<SpaceNode>
     {
-        public Vector3 LocalPosition;
+        public SpaceGraph ParentGraph { get; }
+        public Vector3 LocalPosition { get; }
+        
         public PopulationDensity PopulationDensity;
         public SoilFertility SoilFertility;
         public FuelSupply FuelSupply;
         public Disposition Disposition;
+        
         public float RandomRoll;
 
-        public SpaceNode(Vector3 localPosition, float randomRoll)
+        public SpaceNode(SpaceGraph parentGraph, Vector3 localPosition, float randomRoll)
         {
+            ParentGraph = parentGraph;
             LocalPosition = localPosition;
             RandomRoll = randomRoll;
 
@@ -50,8 +54,9 @@ namespace BML.Scripts.SpaceGraph
             this.PopulationDensity = EnumUtils.Random<PopulationDensity>(randomRoll);
         }
         
-        public SpaceNode(Vector3 localPosition, PopulationDensity populationDensity, SoilFertility soilFertility, FuelSupply fuelSupply, Disposition disposition, float randomRoll)
+        public SpaceNode(SpaceGraph parentGraph, Vector3 localPosition, PopulationDensity populationDensity, SoilFertility soilFertility, FuelSupply fuelSupply, Disposition disposition, float randomRoll)
         {
+            ParentGraph = parentGraph;
             LocalPosition = localPosition;
             PopulationDensity = populationDensity;
             SoilFertility = soilFertility;
@@ -88,6 +93,16 @@ namespace BML.Scripts.SpaceGraph
                 hashCode = (hashCode * 397) ^ RandomRoll.GetHashCode();
                 return hashCode;
             }
+        }
+
+        public bool IsStartNode()
+        {
+            return this.Equals(ParentGraph?.Start);
+        }
+
+        public bool IsEndNode()
+        {
+            return this.Equals(ParentGraph?.End);
         }
     }
 }
