@@ -181,6 +181,52 @@ namespace BML.Scripts.Utils
             );
         }
 
+        #region Array vector conversion
+
+        
+
+        public static Vector2 Vector2FromArray(float[] components)
+        {
+            return new Vector2((float)components[0], components[1]);
+        }
+
+        public static float[] ToArray(this Vector2 v)
+        {
+            return new float[] { v.x, v.y };
+        }
+
+        public static double[] ToDoubleArray(this Vector2 v)
+        {
+            return new double[] { v.x, v.y };
+        }
+
+        public static Vector2 Vector2FromDoubleArray(double[] components)
+        {
+            return new Vector2((float)components[0], (float)components[1]);
+        }
+
+        public static Vector3 Vector3FromArray(float[] components)
+        {
+            return new Vector3((float)components[0], components[1], components[2]);
+        }
+
+        public static float[] ToArray(this Vector3 v)
+        {
+            return new float[] { v.x, v.y, v.z };
+        }
+
+        public static double[] ToDoubleArray(this Vector3 v)
+        {
+            return new double[] { v.x, v.y, v.z };
+        }
+
+        public static Vector3 Vector3FromDoubleArray(double[] components)
+        {
+            return new Vector3((float)components[0], (float)components[1], (float)components[2]);
+        }
+
+        #endregion
+
         public static string ToPrint(this Vector2 vector)
         {
             return $"({vector.x}, {vector.y})";
