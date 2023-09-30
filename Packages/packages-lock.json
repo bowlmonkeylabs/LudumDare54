@@ -214,10 +214,11 @@
       }
     },
     "org.nuget.quikgraph": {
-      "version": "file:C:/Users/Gabriel/Downloads/org.nuget.quikgraph@2.5.0",
+      "version": "2.5.0",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unitynuget-registry.azurewebsites.net"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
