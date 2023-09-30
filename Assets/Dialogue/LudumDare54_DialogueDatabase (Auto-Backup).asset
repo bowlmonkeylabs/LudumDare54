@@ -96,10 +96,10 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 2
+  - id: 5
     fields:
     - title: Name
-      value: DensePopulation
+      value: FoodRequested
       type: 0
       typeString: 
     - title: Initial Value
@@ -110,10 +110,10 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 3
+  - id: 6
     fields:
     - title: Name
-      value: Furtive
+      value: FuelRequested
       type: 0
       typeString: 
     - title: Initial Value
@@ -124,16 +124,58 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 4
+  - id: 7
     fields:
     - title: Name
-      value: LotsOfFood
+      value: PersonRequested
       type: 0
       typeString: 
     - title: Initial Value
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 8
+    fields:
+    - title: Name
+      value: PopulationDensity
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 9
+    fields:
+    - title: Name
+      value: FuelSupply
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 10
+    fields:
+    - title: Name
+      value: FoodSupply
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
     - title: Description
       value: 
       type: 0
@@ -234,8 +276,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
-        y: 20
+        x: 225.27563
+        y: 16.850388
         width: 160
         height: 30
     - id: 1
@@ -303,8 +345,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
-        y: 141
+        x: 226.06303
+        y: 129.37396
         width: 160
         height: 30
     - id: 2
@@ -351,15 +393,21 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      conditionsString: Variable["Furtive"] == true
-      userScript: 
+      - originConversationID: 1
+        originDialogueID: 2
+        destinationConversationID: 1
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["FuelSupply"] > 0
+      userScript: Variable["FuelRequested"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 28
-        y: 224
+        x: 443.47772
+        y: 225.62222
         width: 160
         height: 30
     - id: 3
@@ -399,16 +447,28 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["DensePopulation"] == true
-      userScript: 
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 3
+        destinationConversationID: 1
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 3
+        destinationConversationID: 1
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["PopulationDensity"] > 0
+      userScript: Variable["PersonRequested"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 228
-        y: 222
+        x: 25.698807
+        y: 222.98294
         width: 160
         height: 30
     - id: 4
@@ -448,16 +508,28 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: Variable["LotsOfFood"] == true
-      userScript: 
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 4
+        destinationConversationID: 1
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 4
+        destinationConversationID: 1
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["FoodSupply"] > 0
+      userScript: Variable["FoodRequested"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 426
-        y: 222.13223
+        x: 226.86322
+        y: 224.79529
         width: 160
         height: 30
     - id: 5
@@ -465,11 +537,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -481,15 +553,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 
+        value: WHAT ARE YOU DOIN! GIT!
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 1
       isRoot: 0
       isGroup: 0
@@ -498,20 +570,91 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: '(Variable["FoodRequested"] == true and (Variable["LotsOfFood"]
+        == false))
+
+        or
+
+        (Variable["FuelRequested"] == true and (Variable["Furtive"]
+        == false))
+
+        or
+
+        (Variable["PersonRequested"] == true and
+        (Variable["DensePopulation"] == false))'
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 28
-        y: 312
+        x: 76.01335
+        y: 393.79282
+        width: 160
+        height: 30
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Of course!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: '(Variable["FoodRequested"] == true and (Variable["LotsOfFood"]
+        == true))
+
+        or
+
+        (Variable["FuelRequested"] == true and (Variable["Furtive"]
+        == true))
+
+        or
+
+        (Variable["PersonRequested"] == true and (Variable["DensePopulation"]
+        == true))'
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 395.45407
+        y: 393.4586
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.2999997
+    canvasZoom: 1.6599994
   syncInfo:
     syncActors: 0
     syncItems: 0

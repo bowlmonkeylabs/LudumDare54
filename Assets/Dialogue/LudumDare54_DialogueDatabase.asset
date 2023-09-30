@@ -96,48 +96,6 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 2
-    fields:
-    - title: Name
-      value: DensePopulation
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: True
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-  - id: 3
-    fields:
-    - title: Name
-      value: Furtive
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: True
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-  - id: 4
-    fields:
-    - title: Name
-      value: LotsOfFood
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: True
-      type: 2
-      typeString: CustomFieldType_Boolean
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
   - id: 5
     fields:
     - title: Name
@@ -176,6 +134,48 @@ MonoBehaviour:
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 8
+    fields:
+    - title: Name
+      value: PopulationDensity
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 9
+    fields:
+    - title: Name
+      value: FuelSupply
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 10
+    fields:
+    - title: Name
+      value: FoodSupply
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
     - title: Description
       value: 
       type: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 230.00003
+        x: 225.27563
         y: 16.850388
         width: 160
         height: 30
@@ -346,7 +346,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 226.06303
-        y: 129.97636
+        y: 129.37396
         width: 160
         height: 30
     - id: 2
@@ -399,15 +399,15 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["FuelSupply"] > 0
       userScript: Variable["FuelRequested"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 27.212593
-        y: 223.21259
+        x: 443.47772
+        y: 225.62222
         width: 160
         height: 30
     - id: 3
@@ -460,15 +460,15 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["PopulationDensity"] > 0
       userScript: Variable["PersonRequested"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 459.49606
-        y: 216.5245
+        x: 25.698807
+        y: 222.98294
         width: 160
         height: 30
     - id: 4
@@ -521,15 +521,15 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["FoodSupply"] > 0
       userScript: Variable["FoodRequested"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 227.46564
-        y: 220.55743
+        x: 226.86322
+        y: 224.79529
         width: 160
         height: 30
     - id: 5
@@ -648,13 +648,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 394.8517
+        x: 395.45407
         y: 393.4586
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0.78741455}
-    canvasZoom: 1.2699997
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1.6599994
   syncInfo:
     syncActors: 0
     syncItems: 0
