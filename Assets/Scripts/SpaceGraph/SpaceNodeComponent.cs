@@ -79,6 +79,10 @@ namespace BML.Scripts.SpaceGraph
             {
                 result = _colorExplored;
             }
+            else if (SpaceNode.PlayerVisited)
+            {
+                result = (_hoverInteraction.IsHovered ? _colorHoverReachable : _colorExplored);
+            }
             else if (SpaceNode.PlayerOccupiedAdjacent)
             {
                 result = (_hoverInteraction.IsHovered ? _colorHoverReachable : _colorReachable);
