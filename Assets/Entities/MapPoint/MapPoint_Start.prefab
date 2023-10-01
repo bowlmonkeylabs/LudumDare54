@@ -119,17 +119,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapPoint_Start
       objectReference: {fileID: 0}
-    - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
-      propertyPath: color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
-      propertyPath: color.g
+    - target: {fileID: 1188237854078605460, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: color.b
+      value: 0.22745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: color.g
+      value: 0.2747098
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
       propertyPath: color.r
-      value: 0.16983688
+      value: 0.81960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383370675278765081, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}

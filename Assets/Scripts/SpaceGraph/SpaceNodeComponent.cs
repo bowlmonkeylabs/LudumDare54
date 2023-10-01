@@ -69,7 +69,7 @@ namespace BML.Scripts.SpaceGraph
 
         public void UpdateDisplay()
         {
-            if (this.SpaceNode.IsStartNode() || this.SpaceNode.IsEndNode())
+            if (SpaceNode.ParentGraph == null || this.SpaceNode.IsStartNode() || this.SpaceNode.IsEndNode())
             {
                 return;
             }
