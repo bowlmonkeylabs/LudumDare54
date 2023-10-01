@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using BML.ScriptableObjectCore.Scripts.Events;
 using BML.ScriptableObjectCore.Scripts.Variables;
 using BML.Scripts.SpaceGraph;
+using Codice.CM.Common;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace BML.Scripts.Dialogue
@@ -20,11 +24,37 @@ namespace BML.Scripts.Dialogue
         [SerializeField] private float _stingySuccessChance = .2f;
         [SerializeField] private float _generousSuccessChance = .9f;
 
+        [Header("Rewards")]
+        [SerializeField] private List<FuelReward> _fuelRewards = new List<FuelReward>();
+        [SerializeField] private List<FoodReward> _foodRewards = new List<FoodReward>();
+        [SerializeField] private List<PeopleReward> _peopleRewards = new List<PeopleReward>();
+
+        [Serializable]
+        private class FuelReward
+        {
+            public FuelSupply _fuelSupply;
+            public int _reward;
+        }
+        
+        [Serializable]
+        private class FoodReward
+        {
+            public SoilFertility _soilFertility;
+            public int _reward;
+        }
+        
+        [Serializable]
+        private class PeopleReward
+        {
+            public PopulationDensity _populationDensity;
+            public int _reward;
+        }
+        
+
         private void OnEnable()
         {
             _onReceiveReward.Subscribe(ReceiveReward);
             _currentSpaceNode.Subscribe(SetCurrentNodeValues);
-            SetCurrentNodeValues();
         }
         
         private void OnDisable()
@@ -52,21 +82,24 @@ namespace BML.Scripts.Dialogue
         {
             if (DialogueLua.GetVariable("FoodRequested").asBool)
             {
-                var foodReward = (int) _currentSpaceNode.Value.SpaceNode.SoilFertility;
-                _currentFoodCount.Value += foodReward;
-                Debug.Log($"Rewarded {foodReward} food");
+                var fertility = _currentSpaceNode.Value.SpaceNode.SoilFertility;
+                var reward = (_foodRewards.FirstOrDefault(r => r._soilFertility == fertility))._reward;
+                _currentFoodCount.Value += reward;
+                Debug.Log($"Rewarded {reward} food");
             }
             else if (DialogueLua.GetVariable("FuelRequested").asBool)
             {
-                var fuelReward = (int) _currentSpaceNode.Value.SpaceNode.FuelSupply;
-                _currentFuelCount.Value += fuelReward;
-                Debug.Log($"Rewarded {fuelReward} fuel");
+                var fuelSupply = _currentSpaceNode.Value.SpaceNode.FuelSupply;
+                var reward = (_fuelRewards.FirstOrDefault(r => r._fuelSupply == fuelSupply))._reward;
+                _currentFuelCount.Value += reward;
+                Debug.Log($"Rewarded {reward} fuel");
             }
             else if (DialogueLua.GetVariable("PersonRequested").asBool)
             {
-                var personReward = (int) _currentSpaceNode.Value.SpaceNode.PopulationDensity;
-                _currentPersonCount.Value += personReward;
-                Debug.Log($"Rewarded {personReward} people");
+                var populationDensity = _currentSpaceNode.Value.SpaceNode.PopulationDensity;
+                var reward = (_peopleRewards.FirstOrDefault(r => r._populationDensity == populationDensity))._reward;
+                _currentPersonCount.Value += reward;
+                Debug.Log($"Rewarded {reward} people");
             }
         }
     }
