@@ -2,7 +2,9 @@
     "name": "BML.Scripts.Game",
     "rootNamespace": "",
     "references": [
-        "GUID:2625f98614937ec43a247986656275ee"
+        "GUID:2625f98614937ec43a247986656275ee",
+        "GUID:1639dc092b665bb4d94ec61cd7ce4c31",
+        "GUID:4a1cb1490dc4df8409b2580d6b44e75e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,4 +1,5 @@
 using System;
+using BML.ScriptableObjectCore.Scripts.Variables;
 using Codice.Client.GameUI.Update;
 using Shapes;
 using Sirenix.OdinInspector;
@@ -21,7 +22,9 @@ namespace BML.Scripts.SpaceGraph
         [SerializeField] private Color _colorReachable;
         [SerializeField] private Color _colorHoverReachable;
         [SerializeField] private Color _colorUnreachable;
+        [SerializeField] private IntVariable _fuelAmount;
         [SerializeField] private UnityEvent _onNavigate;
+        [SerializeField] private UnityEvent _onFuelCheckFailed;
 
         #endregion
 
@@ -102,6 +105,11 @@ namespace BML.Scripts.SpaceGraph
         {
             if (!this.SpaceNode.PlayerOccupiedAdjacent)
             {
+                return;
+            }
+
+            if(_fuelAmount.Value <= 0) {
+                _onFuelCheckFailed.Invoke();
                 return;
             }
 

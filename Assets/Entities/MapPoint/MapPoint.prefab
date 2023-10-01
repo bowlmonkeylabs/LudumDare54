@@ -54,6 +54,7 @@ MonoBehaviour:
   _colorReachable: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   _colorHoverReachable: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
   _colorUnreachable: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+  _fuelAmount: {fileID: 11400000, guid: 48f2294361ca37344bf3bdd81438f961, type: 2}
   _onNavigate:
     m_PersistentCalls:
       m_Calls:
@@ -79,6 +80,22 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onFuelCheckFailed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0d83a6cba9eaa7641a5382b7d9b5537d, type: 2}
+        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.GameEvent,
+          ScriptableObjectSystem
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
