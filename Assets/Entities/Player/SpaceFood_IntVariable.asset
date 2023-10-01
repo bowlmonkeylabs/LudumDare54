@@ -15,8 +15,8 @@ MonoBehaviour:
   Description: Current amount of food that determines whether people can be fed
   includeInContainers: 1024
   enableLogs: 0
-  defaultValue: 200
-  runtimeValue: 200
+  defaultValue: 210
+  runtimeValue: 210
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 

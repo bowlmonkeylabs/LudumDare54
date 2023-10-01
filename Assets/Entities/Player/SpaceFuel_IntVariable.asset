@@ -15,8 +15,8 @@ MonoBehaviour:
   Description: Player current fuel amount
   includeInContainers: 1024
   enableLogs: 0
-  defaultValue: 11
-  runtimeValue: 11
+  defaultValue: 8
+  runtimeValue: 3
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
