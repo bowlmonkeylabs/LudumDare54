@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 1437553039749378405}
   - component: {fileID: 3496262136129893538}
   - component: {fileID: 7322191511741723282}
-  - component: {fileID: 4467846653728090496}
+  - component: {fileID: 2785497491471778391}
   m_Layer: 0
   m_Name: Space
   m_TagString: Untagged
@@ -562,7 +562,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4467846653728090496
+--- !u!114 &2785497491471778391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5898595925624431152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79c7719e6566674b8c4d70a6fc32d34, type: 3}
+  m_Script: {fileID: 11500000, guid: 78da314d1f9f19e4cb05924df1312c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tagMask:
