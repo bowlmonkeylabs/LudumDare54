@@ -55,6 +55,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapPoint_End
       objectReference: {fileID: 0}
+    - target: {fileID: 3851810130586199834, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: _colorUnreachable.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851810130586199834, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: _colorUnreachable.g
+      value: 0.18559924
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851810130586199834, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: _colorUnreachable.r
+      value: 0.07008722
+      objectReference: {fileID: 0}
     - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
       propertyPath: color.b
       value: 0.22745098

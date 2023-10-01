@@ -20,7 +20,6 @@ namespace BML.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log("Hover Enter: " + transform.gameObject.name);
             _enterInteractionReceived.Invoke();
             IsHovered = true;
             OnHoverChange?.Invoke(true);
@@ -28,7 +27,6 @@ namespace BML.Scripts
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Debug.Log("Hover Exit: " + transform.gameObject.name);
             _exitInteractionReceived.Invoke();
             IsHovered = false;
             OnHoverChange?.Invoke(false);
