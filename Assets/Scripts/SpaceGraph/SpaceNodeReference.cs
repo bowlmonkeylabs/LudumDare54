@@ -2,7 +2,7 @@
 using BML.Scripts.SpaceGraph;
 using UnityEngine;
 
-namespace SpaceGraph
+namespace BML.Scripts.SpaceGraph
 {
     [CreateAssetMenu(fileName = "SpaceNodeReference", menuName = "BML/SpaceGraph/SpaceNodeReference", order = 0)]
     public class SpaceNodeReference : SceneReference<SpaceNodeComponent> {}
