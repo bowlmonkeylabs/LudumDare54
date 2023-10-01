@@ -6,6 +6,7 @@ using BML.Scripts.SpaceGraph;
 using UnityEngine.SceneManagement;
 using BML.ScriptableObjectCore.Scripts.Variables;
 using BML.Scripts.CaveV2;
+using SpaceGraph;
 
 namespace BML.Scripts.Game {
     public class GameManager : MonoBehaviour
@@ -13,6 +14,7 @@ namespace BML.Scripts.Game {
         [SerializeField] private FloatReference _chanceToAddFuelOnWait;
         [SerializeField] private UnityEvent _onProcessSpaceNodeAttributes;
         [SerializeField] private UnityEvent _onFuelAddedSuccess;
+        [SerializeField] private SpaceNodeReference _currentSpaceNode;
 
         public void ProcessSpaceNodeAttributes(object _spaceNodeTransform) {
             var spaceNodeComp = (_spaceNodeTransform as Transform).GetComponent<SpaceNodeComponent>();
@@ -21,6 +23,8 @@ namespace BML.Scripts.Game {
                 if(spaceNode.IsStartNode() || spaceNode.IsEndNode()) {
                     return;
                 }
+
+                _currentSpaceNode.Value = spaceNodeComp;
 
                 _onProcessSpaceNodeAttributes.Invoke();
             }

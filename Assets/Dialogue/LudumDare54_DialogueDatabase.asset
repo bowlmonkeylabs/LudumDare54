@@ -145,7 +145,21 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: 0
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 10
+    fields:
+    - title: Name
+      value: SoilFertility
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 1
       type: 1
       typeString: CustomFieldType_Number
     - title: Description
@@ -159,6 +173,20 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 13
+    fields:
+    - title: Name
+      value: Disposition
+      type: 0
+      typeString: 
+    - title: Initial Value
       value: 0
       type: 1
       typeString: CustomFieldType_Number
@@ -166,10 +194,24 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 10
+  - id: 11
     fields:
     - title: Name
-      value: FoodSupply
+      value: RandomRoll
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 12
+    fields:
+    - title: Name
+      value: SuccessChance
       type: 0
       typeString: 
     - title: Initial Value
@@ -390,24 +432,18 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 2
         destinationConversationID: 1
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      - originConversationID: 1
-        originDialogueID: 2
-        destinationConversationID: 1
-        destinationDialogueID: 6
+        destinationDialogueID: 7
         isConnector: 0
         priority: 2
       conditionsString: Variable["FuelSupply"] > 0
-      userScript: Variable["FuelRequested"] = true
+      userScript: Variable["FuelRequested"] = true;
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 443.47772
-        y: 225.62222
+        x: 635.0362
+        y: 238.60925
         width: 160
         height: 30
     - id: 3
@@ -460,15 +496,15 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: Variable["PopulationDensity"] > 0
-      userScript: Variable["PersonRequested"] = true
+      conditionsString: 
+      userScript: Variable["PersonRequested"] = true;
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 25.698807
-        y: 222.98294
+        x: 106.218315
+        y: 232.07385
         width: 160
         height: 30
     - id: 4
@@ -512,24 +548,18 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 4
         destinationConversationID: 1
-        destinationDialogueID: 5
-        isConnector: 0
-        priority: 2
-      - originConversationID: 1
-        originDialogueID: 4
-        destinationConversationID: 1
-        destinationDialogueID: 6
+        destinationDialogueID: 7
         isConnector: 0
         priority: 2
       conditionsString: Variable["FoodSupply"] > 0
-      userScript: Variable["FoodRequested"] = true
+      userScript: Variable["FoodRequested"] = true;
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 226.86322
-        y: 224.79529
+        x: 419.86127
+        y: 235.83426
         width: 160
         height: 30
     - id: 5
@@ -555,7 +585,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: WHAT ARE YOU DOIN! GIT!
+        value: I AIN'T LEAVIN, GIT!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -570,26 +600,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: '(Variable["FoodRequested"] == true and (Variable["LotsOfFood"]
-        == false))
-
-        or
-
-        (Variable["FuelRequested"] == true and (Variable["Furtive"]
-        == false))
-
-        or
-
-        (Variable["PersonRequested"] == true and
-        (Variable["DensePopulation"] == false))'
+      conditionsString: Variable["RandomRoll"] > Variable["SuccessChance"]
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 76.01335
-        y: 393.79282
+        x: 14.770981
+        y: 387.53403
         width: 160
         height: 30
     - id: 6
@@ -615,7 +634,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Of course!
+        value: Let's get outta ere!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -630,31 +649,95 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: '(Variable["FoodRequested"] == true and (Variable["LotsOfFood"]
-        == true))
-
-        or
-
-        (Variable["FuelRequested"] == true and (Variable["Furtive"]
-        == true))
-
-        or
-
-        (Variable["PersonRequested"] == true and (Variable["DensePopulation"]
-        == true))'
+      conditionsString: Variable["RandomRoll"] <= Variable["SuccessChance"]
       userScript: 
       onExecute:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 7e39ca62e3917f4408d30be238e4a1cd, type: 2}
+            m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.GameEvent,
+              ScriptableObjectSystem
+            m_MethodName: Raise
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       canvasRect:
         serializedVersion: 2
-        x: 395.45407
-        y: 393.4586
+        x: 213.63586
+        y: 386.96506
+        width: 160
+        height: 30
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: Of course, here!
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 7e39ca62e3917f4408d30be238e4a1cd, type: 2}
+            m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.GameEvent,
+              ScriptableObjectSystem
+            m_MethodName: Raise
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      canvasRect:
+        serializedVersion: 2
+        x: 545.97424
+        y: 379.87015
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.6599994
+    canvasZoom: 1.2999997
   syncInfo:
     syncActors: 0
     syncItems: 0
