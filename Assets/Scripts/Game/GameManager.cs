@@ -66,7 +66,7 @@ namespace BML.Scripts.Game {
 
         public void CheckEnoughFoodForPeople() {
             float neededAmountOfFood = _foodRequiredPerPerson.Value * _peopleAmount.Value;
-            if(neededAmountOfFood >= _foodAmount.Value) {
+            if(_foodAmount.Value < neededAmountOfFood) {
                 //people starve, invoke with amount of people starved
                 _onNotEnoughFood.Invoke();
             }
