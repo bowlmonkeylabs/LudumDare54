@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3a362419e36a5f4aa1fe1476aec8426, type: 3}
-  m_Name: MapPointClicked_DynamicGameEvent
+  m_Name: MapPointReachedByPlayer_DynamicGameEvent
   m_EditorClassIdentifier: 
-  Description: A map point/star system was clicked, selected as the next navigation
-    destination for the player.
+  Description: After map point/star system was clicked, this event fire when the
+    player reached the selected navigation target.

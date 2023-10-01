@@ -36,6 +36,7 @@ namespace BML.Scripts.SpaceGraph
                 {
                     node.PlayerVisitedAdjacent = true;
                 }
+                node.InvokeUpdate();
             });
         }
         

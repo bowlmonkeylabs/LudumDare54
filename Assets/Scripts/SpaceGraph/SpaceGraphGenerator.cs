@@ -277,6 +277,18 @@ namespace BML.Scripts.SpaceGraph
             return _bounds.center + spaceNode.LocalPosition;
         }
 
+        public void PropagatePlayerOccupied(System.Object obj)
+        {
+            PropagatePlayerOccupied((Transform)obj);
+        }
+
+        public void PropagatePlayerOccupied(Transform spaceNodeTransform)
+        {
+            var spaceNode = spaceNodeTransform.GetComponent<SpaceNodeComponent>();
+            _spaceGraph.PropagatePlayerOccupied(new List<SpaceNode> { spaceNode.SpaceNode });
+            // spaceNode.UpdateDisplay();
+        }
+
         #endregion
     }
 }

@@ -27,7 +27,7 @@ namespace BML.Scripts.SpaceGraph
         public void Init(SpaceNodeEdge spaceNodeEdge)
         {
             this.SpaceNodeEdge = spaceNodeEdge;
-            
+
             // Position and align
             var edgeDiff = (spaceNodeEdge.Target.LocalPosition - spaceNodeEdge.Source.LocalPosition);
             var edgeRotation = Quaternion.LookRotation(edgeDiff);

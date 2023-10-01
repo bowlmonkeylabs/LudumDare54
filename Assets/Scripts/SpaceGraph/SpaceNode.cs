@@ -50,6 +50,11 @@ namespace BML.Scripts.SpaceGraph
         public bool PlayerVisited { get; set; } = false;
         public bool PlayerVisitedAdjacent { get; set; } = false;
 
+        public delegate void _OnUpdate();
+
+        public event _OnUpdate OnUpdate;
+        public void InvokeUpdate() => OnUpdate?.Invoke();
+
         public SpaceNode(SpaceGraph parentGraph, Vector3 localPosition, float randomRoll)
         {
             ParentGraph = parentGraph;

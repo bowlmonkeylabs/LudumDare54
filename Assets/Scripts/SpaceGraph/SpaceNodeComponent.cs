@@ -31,12 +31,19 @@ namespace BML.Scripts.SpaceGraph
         {
             UpdateDisplay();
             _hoverInteraction.OnHoverChange += OnHoverChange;
+            if (this.SpaceNode != null)
+            {
+                this.SpaceNode.OnUpdate += UpdateDisplay;
+            }
         }
 
         private void OnDisable()
         {
-            
             _hoverInteraction.OnHoverChange -= OnHoverChange;
+            if (this.SpaceNode != null)
+            {
+                this.SpaceNode.OnUpdate -= UpdateDisplay;
+            }
         }
 
         #endregion
@@ -45,8 +52,16 @@ namespace BML.Scripts.SpaceGraph
 
         public void Init(SpaceNode spaceNode)
         {
+            if (this.SpaceNode != null)
+            {
+                this.SpaceNode.OnUpdate -= UpdateDisplay;
+            }
             this.SpaceNode = spaceNode;
-            
+            if (this.SpaceNode != null)
+            {
+                this.SpaceNode.OnUpdate += UpdateDisplay;
+            }
+
             // Position and align
             this.transform.localPosition = spaceNode.LocalPosition;
             this.transform.rotation = Quaternion.identity;
