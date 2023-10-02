@@ -43,7 +43,7 @@ namespace BML.Scripts.SpaceGraph
         private void FloodFillDistance(IEnumerable<SpaceNode> targetVertices, Action<SpaceNode, int> updateStoredVertexDistance)
         {
             int distanceToTarget = 0;
-            var verticesToCheck = new HashSet<SpaceNode>(targetVertices);
+            var verticesToCheck = new HashSet<SpaceNode>(targetVertices ?? Vertices);
             var verticesToCheckNext = new HashSet<SpaceNode>();
             var checkedVertices = new HashSet<SpaceNode>(verticesToCheck);
 

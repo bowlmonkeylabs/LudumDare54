@@ -69,6 +69,8 @@ namespace BML.Scripts.SpaceGraph
             // Position and align
             this.transform.localPosition = spaceNode.LocalPosition;
             this.transform.rotation = Quaternion.identity;
+            
+            UpdateDisplay();
         }
 
         public void UpdateDisplay()
