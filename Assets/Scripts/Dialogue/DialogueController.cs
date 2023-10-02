@@ -4,10 +4,8 @@ using System.Linq;
 using BML.ScriptableObjectCore.Scripts.Events;
 using BML.ScriptableObjectCore.Scripts.Variables;
 using BML.Scripts.SpaceGraph;
-using Codice.CM.Common;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace BML.Scripts.Dialogue

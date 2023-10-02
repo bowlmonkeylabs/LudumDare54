@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Codice.Client.BaseCommands.TubeClient;
 using QuikGraph;
 using Sirenix.Utilities;
-using UnityEditor.Graphs.AnimationBlendTree;
 
 namespace BML.Scripts.SpaceGraph
 {
     [Serializable]
-    public class SpaceGraph : QuikGraph.UndirectedGraph<SpaceNode, SpaceNodeEdge>
+    public class SpaceGraph : UndirectedGraph<SpaceNode, SpaceNodeEdge>
     {
         public SpaceNode Start;
         public SpaceNode End;

@@ -1,6 +1,5 @@
 using System;
 using BML.ScriptableObjectCore.Scripts.Variables;
-using Codice.Client.GameUI.Update;
 using Shapes;
 using Sirenix.OdinInspector;
 using UnityEngine;

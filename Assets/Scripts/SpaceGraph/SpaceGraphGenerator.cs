@@ -37,10 +37,10 @@ namespace BML.Scripts.SpaceGraph
 
         #region Unity lifecycle
 
-        private void Awake()
-        {
-            DestroySceneObjects();
-        }
+        // private void Awake()
+        // {
+        //     DestroySceneObjects();
+        // }
 
         private void Start()
         {
