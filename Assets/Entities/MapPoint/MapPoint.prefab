@@ -112,7 +112,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onHoverNotExplored:
+  _onHoverAdjacentOrVisited:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8965266944304315836}
