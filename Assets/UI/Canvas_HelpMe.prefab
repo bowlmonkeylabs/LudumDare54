@@ -138,6 +138,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onClose:
+    m_PersistentCalls:
+      m_Calls: []
+  _onOpen:
+    m_PersistentCalls:
+      m_Calls: []
   _onClickBackdrop:
     m_PersistentCalls:
       m_Calls:
@@ -417,15 +423,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
       propertyPath: m_text
-      value: Haaaalp!!!
+      value: 'As you outrun the universe shrinking, try to save as many people as
+        you can aboard your ship.
+
+
+        Not everyone takes kindly to authorities
+        from the sky, and not evreyone will believe your story, so be wise about
+        who you choose to take; you''ll also need to keep supplies stocked to keep
+        the ship running and to keep your refugees alive.'
       objectReference: {fileID: 0}
     - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
       propertyPath: m_fontSize
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.7429406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.48460305
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
       propertyPath: m_fontSizeBase
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4290632060
       objectReference: {fileID: 0}
     - target: {fileID: 6497956022634779254, guid: b18c9d6c81420a446abdcabb20d0872b, type: 3}
       propertyPath: m_VerticalAlignment
@@ -616,6 +645,10 @@ PrefabInstance:
     - target: {fileID: 6029934833849345082, guid: 08924a74a8d434f47adee56c94f31350, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705446826158675923, guid: 08924a74a8d434f47adee56c94f31350, type: 3}
+      propertyPath: ShapeProperties.FillColor.rgba
+      value: 4287556745
       objectReference: {fileID: 0}
     - target: {fileID: 8705446826158675923, guid: 08924a74a8d434f47adee56c94f31350, type: 3}
       propertyPath: RoundedProperties.UniformRadius

@@ -936,12 +936,13 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '- [lua(Variable["DeathCount"])] Crew Deaths
+        value: '- [lua(Variable["DeathCount"])] Net Passenger Deaths
 
-          - [lua(Variable["FuelSpent"])]
-          Fuel Spent
+          -
+          [lua(Variable["FuelSpent"])] Fuel Spent
 
-          - [lua(Variable["FoodSpent"])] Food Spent'
+          - [lua(Variable["FoodSpent"])]
+          Food Spent'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
