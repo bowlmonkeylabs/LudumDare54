@@ -21,14 +21,16 @@ namespace BML.Scripts.Dialogue
         [SerializeField] private IntReference _currentPersonCount;
         
         [Header("Disposition")]
-        [SerializeField] private float _stingySuccessChance = .2f;
-        [SerializeField] private float _generousSuccessChance = .9f;
+        [SerializeField] private List<DispositionSuccessChance> _dispositionSuccessChances;
 
         [Header("Rewards")]
         [SerializeField] private List<FuelReward> _fuelRewards = new List<FuelReward>();
         [SerializeField] private List<FoodReward> _foodRewards = new List<FoodReward>();
         [SerializeField] private List<PeopleReward> _peopleRewards = new List<PeopleReward>();
 
+        [Header("Dialogue")] [SerializeField]
+        private List<DispositionDialogues> _dispositionDialogues = new List<DispositionDialogues>();
+        
         [Serializable]
         private class FuelReward
         {
@@ -48,6 +50,21 @@ namespace BML.Scripts.Dialogue
         {
             public PopulationDensity _populationDensity;
             public int _reward;
+        }
+        
+        [Serializable]
+        private class DispositionDialogues
+        {
+            public Disposition _disposition;
+            [TextArea(3,5)]
+            public List<string> _dialogues;
+        }
+
+        [Serializable]
+        private class DispositionSuccessChance
+        {
+            public Disposition Disposition;
+            public float SuccessChance;
         }
 
         private int personCountValueAtEndOfLastTurn;
@@ -72,16 +89,29 @@ namespace BML.Scripts.Dialogue
         private void SetCurrentNodeValues()
         {
             DialogueLua.SetVariable("RandomRoll", _currentSpaceNode.Value.SpaceNode.RandomRoll);
-            
-            if (_currentSpaceNode.Value.SpaceNode.Disposition == Disposition.Stingy)
-                DialogueLua.SetVariable("SuccessChance", _stingySuccessChance);
-            else if (_currentSpaceNode.Value.SpaceNode.Disposition == Disposition.Generous)
-                DialogueLua.SetVariable("SuccessChance", _generousSuccessChance);
+
+            float? successChance = _dispositionSuccessChances
+                .FirstOrDefault(d => 
+                    d.Disposition == _currentSpaceNode.Value?.SpaceNode.Disposition
+                )?.SuccessChance;
+            if (successChance == null)
+            {
+                successChance = 0f;
+            }
+            DialogueLua.SetVariable("SuccessChance", successChance);
             
             DialogueLua.SetVariable("PopulationDensity", (int) _currentSpaceNode.Value.SpaceNode.PopulationDensity);
             DialogueLua.SetVariable("SoilFertility", (int) _currentSpaceNode.Value.SpaceNode.SoilFertility);
             DialogueLua.SetVariable("FuelSupply", (int) _currentSpaceNode.Value.SpaceNode.FuelSupply);
             DialogueLua.SetVariable("Disposition", (int) _currentSpaceNode.Value.SpaceNode.Disposition);
+
+            var greetingOptions = _dispositionDialogues
+                .FirstOrDefault(d => d._disposition == _currentSpaceNode.Value.SpaceNode.Disposition)
+                ._dialogues;
+            var greeting = greetingOptions[Random.Range(0, greetingOptions.Count)];
+            
+            DialogueLua.SetVariable("Greeting", greeting);
+            
         }
 
         private void ReceiveReward()

@@ -283,7 +283,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: ConversationTest
+  conversation: SystemDialogue
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: 
+  actor: Inhabitant
   persistentDataName: 
   portrait: {fileID: 0}
   spritePortrait: {fileID: 0}
@@ -1476,6 +1476,7 @@ MonoBehaviour:
     _reward: 10
   - _populationDensity: 2
     _reward: 20
+  _dispositionDialogues: []
 --- !u!1 &539880150
 GameObject:
   m_ObjectHideFlags: 0

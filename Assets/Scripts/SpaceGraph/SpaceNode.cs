@@ -29,6 +29,9 @@ namespace BML.Scripts.SpaceGraph
     {
         Stingy,
         Generous,
+        Cautious,
+        Confused,
+        Unreadable,
     }
 
     [Serializable]

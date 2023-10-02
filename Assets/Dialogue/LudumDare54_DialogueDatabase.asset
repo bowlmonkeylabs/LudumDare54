@@ -60,7 +60,7 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: TestActor
+      value: Inhabitant
       type: 0
       typeString: 
     - title: Pictures
@@ -286,11 +286,25 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
+  - id: 17
+    fields:
+    - title: Name
+      value: Greeting
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
   conversations:
   - id: 1
     fields:
     - title: Title
-      value: ConversationTest
+      value: SystemDialogue
       type: 0
       typeString: 
     - title: Description
@@ -372,7 +386,7 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 0
         destinationConversationID: 1
-        destinationDialogueID: 1
+        destinationDialogueID: 8
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -409,9 +423,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Well howdy there! This here's the very same scorple farm my grand
-          papy used to own and his gand papy before him. It ain't much, but it's
-          honest work.
+        value: '[lua(Variable["Greeting"])]'
         type: 0
         typeString: 
       - title: Sequence
@@ -451,8 +463,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 226.06303
-        y: 129.37396
+        x: 226.83226
+        y: 212.45093
         width: 160
         height: 30
     - id: 2
@@ -506,8 +518,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 635.0362
-        y: 238.60925
+        x: 641.95935
+        y: 323.2247
         width: 160
         height: 30
     - id: 3
@@ -567,8 +579,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 106.218315
-        y: 232.07385
+        x: 106.98754
+        y: 315.15082
         width: 160
         height: 30
     - id: 4
@@ -622,8 +634,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 418.3228
-        y: 239.68039
+        x: 419.09204
+        y: 322.75735
         width: 160
         height: 30
     - id: 5
@@ -671,8 +683,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 14.770981
-        y: 387.53403
+        x: 18.692322
+        y: 470.61102
         width: 160
         height: 30
     - id: 6
@@ -733,8 +745,8 @@ MonoBehaviour:
             m_CallState: 2
       canvasRect:
         serializedVersion: 2
-        x: 213.63586
-        y: 386.96506
+        x: 214.40509
+        y: 470.04205
         width: 160
         height: 30
     - id: 7
@@ -795,8 +807,67 @@ MonoBehaviour:
             m_CallState: 2
       canvasRect:
         serializedVersion: 2
-        x: 545.97424
-        y: 379.87015
+        x: 546.74347
+        y: 462.94714
+        width: 160
+        height: 30
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: '"This is our planet, and we didn''t invite your government here.
+          We''ve managed just fine with our abundant resources and moderate population
+          density. If you''re after our fuel or meddling in our affairs, you''re
+          in for trouble. Explain your presence now, or prepare to face our resistance
+          to any intrusion."'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 8
+        destinationConversationID: 1
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 224.50641
+        y: 106.8504
         width: 160
         height: 30
     entryGroups: []
