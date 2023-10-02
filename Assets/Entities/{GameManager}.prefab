@@ -405,6 +405,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ResponseNoParams:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1312051557624064244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,7 +929,7 @@ MonoBehaviour:
         DebugActive: 0
         LoadingSceneName: MMAdditiveLoadingScreenSimple
         DestinationSceneName: LoseScene
-        LoadingMode: 0
+        LoadingMode: 3
         Priority: 4
         InterpolateProgress: 1
         SecureLoad: 1
@@ -1504,7 +1507,7 @@ MonoBehaviour:
         DebugActive: 0
         LoadingSceneName: MMAdditiveLoadingScreenSimple
         DestinationSceneName: WinScene
-        LoadingMode: 0
+        LoadingMode: 3
         Priority: 4
         InterpolateProgress: 1
         SecureLoad: 1
