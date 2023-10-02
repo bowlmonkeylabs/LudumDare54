@@ -104,7 +104,7 @@ namespace BML.Scripts.Dialogue
             DialogueLua.SetVariable("SoilFertility", (int) _currentSpaceNode.Value.SpaceNode.SoilFertility);
             DialogueLua.SetVariable("FuelSupply", (int) _currentSpaceNode.Value.SpaceNode.FuelSupply);
             DialogueLua.SetVariable("Disposition", (int) _currentSpaceNode.Value.SpaceNode.Disposition);
-
+            
             var greetingOptions = _dispositionDialogues
                 .FirstOrDefault(d => d._disposition == _currentSpaceNode.Value.SpaceNode.Disposition)
                 ._dialogues;

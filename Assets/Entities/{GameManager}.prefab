@@ -271,6 +271,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: f8a7cb0ff2a194240bb40f5ae073d2e3, type: 2}
+        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.GameEvent,
+          ScriptableObjectSystem
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onFuelAddedSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -318,6 +331,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onReachedStartNode:
+    m_PersistentCalls:
+      m_Calls: []
   _onReachedEndNode:
     m_PersistentCalls:
       m_Calls:
@@ -430,6 +446,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 48503073b8eac0f4aac4389d3670194a, type: 2}
+        m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.GameEvent,
+          ScriptableObjectSystem
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: ae355d4bbe71d104e9368fc420e81f4f, type: 2}
         m_TargetAssemblyTypeName: BML.ScriptableObjectCore.Scripts.Events.GameEvent,
           ScriptableObjectSystem
         m_MethodName: Raise
