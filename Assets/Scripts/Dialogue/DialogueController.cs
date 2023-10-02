@@ -49,12 +49,17 @@ namespace BML.Scripts.Dialogue
             public PopulationDensity _populationDensity;
             public int _reward;
         }
-        
+
+        private int personCountValueAtEndOfLastTurn;
+        private int fuelCountValueAtEndOfLastTurn;
+        private int foodCountValueAtEndOfLastTurn;
 
         private void OnEnable()
         {
             _onReceiveReward.Subscribe(ReceiveReward);
             _currentSpaceNode.Subscribe(SetCurrentNodeValues);
+
+            MarkEndOfTurnValues();
         }
         
         private void OnDisable()
@@ -63,6 +68,7 @@ namespace BML.Scripts.Dialogue
             _currentSpaceNode.Unsubscribe(SetCurrentNodeValues);
         }
 
+#region Dialgue Rewards
         private void SetCurrentNodeValues()
         {
             DialogueLua.SetVariable("RandomRoll", _currentSpaceNode.Value.SpaceNode.RandomRoll);
@@ -102,5 +108,24 @@ namespace BML.Scripts.Dialogue
                 Debug.Log($"Rewarded {reward} people");
             }
         }
+
+#endregion
+
+#region End turn screen
+    public void SetDialogueVariablesForSummary() {
+        var personDelta = _currentPersonCount.Value - personCountValueAtEndOfLastTurn;
+        DialogueLua.SetVariable("DeathCount", personDelta < 0 ? -personDelta : 0);
+        var fuelDelta = _currentFuelCount.Value - fuelCountValueAtEndOfLastTurn;
+        DialogueLua.SetVariable("FuelSpent", fuelDelta < 0 ? -fuelDelta : 0);
+        var foodDelta = _currentFoodCount.Value - foodCountValueAtEndOfLastTurn;
+        DialogueLua.SetVariable("FoodSpent", foodDelta < 0 ? -foodDelta : 0);
+    }
+
+    public void MarkEndOfTurnValues() {
+        personCountValueAtEndOfLastTurn = _currentPersonCount.Value;
+        fuelCountValueAtEndOfLastTurn = _currentFuelCount.Value;
+        foodCountValueAtEndOfLastTurn = _currentFoodCount.Value;
+    }
+#endregion
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4508,52 +4508,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
---- !u!1 &983758903
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 983758904}
-  - component: {fileID: 983758905}
-  m_Layer: 0
-  m_Name: NameContainer(EditorOnly)
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &983758904
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983758903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 442698938}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &983758905
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983758903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 190d9e9918d0aaf48a103a2bb6995059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameOverride: MoveSpace
-  tooltipOverride: 
-  target: {fileID: 1207076888}
 --- !u!1001 &988818427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5698,17 +5652,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 27955181941943184, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
   m_PrefabInstance: {fileID: 1780435453}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1207076888 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1437553039749378405, guid: 35459e8659d196841a2b111cf6811735, type: 3}
-  m_PrefabInstance: {fileID: 5898595926054416009}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da43522623d4704e979466dc7650b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1232629693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 27955181941943184, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
@@ -6167,7 +6110,19 @@ MonoBehaviour:
         m_Calls: []
     onConversationEnd:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 570733040}
+          m_TargetAssemblyTypeName: BML.Scripts.Dialogue.DialogueController, BML.Scripts.Dialogue
+          m_MethodName: MarkEndOfTurnValues
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     runOnConversationEndEventsAtEndOfFrame: 0
     onConversationCancelled:
       m_PersistentCalls:
@@ -6357,6 +6312,18 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 570733040}
+        m_TargetAssemblyTypeName: BML.Scripts.Dialogue.DialogueController, BML.Scripts.Dialogue
+        m_MethodName: SetDialogueVariablesForSummary
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1255203515}
         m_TargetAssemblyTypeName: PixelCrushers.DialogueSystem.DialogueSystemTrigger,
           DialogueSystem
@@ -7009,7 +6976,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1685356522}
   m_HandleRect: {fileID: 1685356521}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10712,6 +10679,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1312051557624064245, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
+      propertyPath: _onReachedStartNode.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312051557624064245, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
+      propertyPath: _onReachedStartNode.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312051557624064245, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
+      propertyPath: _onReachedStartNode.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 570733040}
+    - target: {fileID: 1312051557624064245, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
+      propertyPath: _onReachedStartNode.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312051557624064245, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
+      propertyPath: _onReachedStartNode.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MarkEndOfTurnValues
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312051557624064245, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
+      propertyPath: _onReachedStartNode.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BML.Scripts.Dialogue.DialogueController, BML.Scripts.Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1312051557624064245, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
+      propertyPath: _onReachedStartNode.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1312051557624064248, guid: 5389b45ba7e1d1643b5fd0bcb28dd6c1, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -11728,10 +11723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502232290}
     m_Modifications:
-    - target: {fileID: 1437553039749378405, guid: 35459e8659d196841a2b111cf6811735, type: 3}
-      propertyPath: FeedbacksList.Array.data[0].DestinationPosition.x
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5898595925624431152, guid: 35459e8659d196841a2b111cf6811735, type: 3}
       propertyPath: m_Name
       value: Space
@@ -11742,7 +11733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5898595925624431155, guid: 35459e8659d196841a2b111cf6811735, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.09
+      value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 5898595925624431155, guid: 35459e8659d196841a2b111cf6811735, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11780,6 +11771,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4467846653728090496, guid: 35459e8659d196841a2b111cf6811735, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35459e8659d196841a2b111cf6811735, type: 3}

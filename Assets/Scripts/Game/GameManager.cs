@@ -20,6 +20,7 @@ namespace BML.Scripts.Game {
         [SerializeField] private UnityEvent _onFuelAddedSuccess;
         [SerializeField] private UnityEvent _onPeopleReachesZero;
         [SerializeField] private UnityEvent _onNotEnoughFood;
+        [SerializeField] private UnityEvent _onReachedStartNode;
         [SerializeField] private UnityEvent _onReachedEndNode;
         
         void OnEnable() {
@@ -37,6 +38,7 @@ namespace BML.Scripts.Game {
             if(spaceNodeComp != null) {
                 var spaceNode = spaceNodeComp.SpaceNode;
                 if(spaceNode.IsStartNode()) {
+                    _onReachedStartNode.Invoke();
                     return;
                 }
                 if(spaceNode.IsEndNode()) {
