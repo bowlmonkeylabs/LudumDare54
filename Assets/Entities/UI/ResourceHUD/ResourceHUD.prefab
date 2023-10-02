@@ -129,7 +129,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 10
+  m_Spacing: 30
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -431,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 291987924736892425, guid: 568259d29cb0c7641b3df68cccb9e4f8, type: 3}
       propertyPath: m_Name
       value: Fuel
+      objectReference: {fileID: 0}
+    - target: {fileID: 291987924736892425, guid: 568259d29cb0c7641b3df68cccb9e4f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 384304646440553369, guid: 568259d29cb0c7641b3df68cccb9e4f8, type: 3}
       propertyPath: _variable
