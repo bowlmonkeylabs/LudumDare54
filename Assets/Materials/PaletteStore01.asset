@@ -23,6 +23,7 @@ MonoBehaviour:
       - f77ebb67-8f0e-4a8e-a27f-1a8e072fde22
       - 0ff7b1cd-9074-44ac-acdd-9baec8dbfef1
       - fd12a671-a97f-40ce-8bf1-e900d8649383
+      - 334d68ac-db74-4db4-a575-9780e02abc53
       _values:
       - _id: dc0671f1-8a87-464b-9b71-15352f9c77f3
         _name:
@@ -71,7 +72,7 @@ MonoBehaviour:
           _keys:
           - dfec8d7e-41c0-4849-b2cc-ce626a2be136
           _values:
-          - _value: {r: 0, g: 0, b: 0, a: 1}
+          - _value: {r: 0.48460305, g: 0.8490566, b: 0.7429406, a: 1}
       - _id: 0ff7b1cd-9074-44ac-acdd-9baec8dbfef1
         _name:
           _value: UI_Button_Fill
@@ -79,7 +80,7 @@ MonoBehaviour:
           _keys:
           - dfec8d7e-41c0-4849-b2cc-ce626a2be136
           _values:
-          - _value: {r: 0, g: 0, b: 0, a: 1}
+          - _value: {r: 0.53640085, g: 0.9245283, b: 0.5554787, a: 1}
       - _id: fd12a671-a97f-40ce-8bf1-e900d8649383
         _name:
           _value: UI_Button_Outline
@@ -88,6 +89,14 @@ MonoBehaviour:
           - dfec8d7e-41c0-4849-b2cc-ce626a2be136
           _values:
           - _value: {r: 1, g: 1, b: 1, a: 1}
+      - _id: 334d68ac-db74-4db4-a575-9780e02abc53
+        _name:
+          _value: UI_Button_Fill_Alt
+        _values:
+          _keys:
+          - dfec8d7e-41c0-4849-b2cc-ce626a2be136
+          _values:
+          - _value: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 0.5019608}
     _themes:
       _keys:
       - dfec8d7e-41c0-4849-b2cc-ce626a2be136
@@ -105,6 +114,7 @@ MonoBehaviour:
       - f77ebb67-8f0e-4a8e-a27f-1a8e072fde22
       - 0ff7b1cd-9074-44ac-acdd-9baec8dbfef1
       - fd12a671-a97f-40ce-8bf1-e900d8649383
+      - 334d68ac-db74-4db4-a575-9780e02abc53
     _themeOrders:
       _ids:
       - dfec8d7e-41c0-4849-b2cc-ce626a2be136
