@@ -25,7 +25,7 @@ namespace BML.Scripts.SpaceGraph
         [SerializeField] private IntVariable _fuelAmount;
         [SerializeField] private UnityEvent _onNavigate;
         [SerializeField] private UnityEvent _onFuelCheckFailed;
-        [SerializeField] private UnityEvent<bool> _onHoverNotExplored;
+        [SerializeField] private UnityEvent<bool> _onHoverAdjacentOrVisited;
 
         #endregion
 
@@ -130,7 +130,9 @@ namespace BML.Scripts.SpaceGraph
         {
             UpdateDisplay();
             if(SpaceNode.PlayerVisited || SpaceNode.PlayerOccupiedAdjacent || SpaceNode.PlayerOccupied) {
-                _onHoverNotExplored.Invoke(isHovered);
+                if(!SpaceNode.IsStartNode() && !SpaceNode.IsEndNode()) {
+                    _onHoverAdjacentOrVisited.Invoke(isHovered);
+                }
             }
         }
 
