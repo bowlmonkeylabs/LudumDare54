@@ -16,32 +16,13 @@ namespace BML.Scripts.SpaceGraph
     public class SpaceGraphGenerator : MonoBehaviour
     {
         #region Inspector
-        
-        [TitleGroup("1) Poisson")]
-        [SerializeField] private Bounds _bounds;
-        [SerializeField, Range(0f, 30f)] private float _minimumDistance = 2f;
-        [SerializeField, Range(0, 100)] private int _pointsPerIteration = 30;
 
-        [TitleGroup("2) Delaunay")]
-        [SerializeField] private float _planeDistanceTolerance;
-
-        [TitleGroup("3) Render to Scene")]
-        [SerializeField] private SafeTransformValueReference _sceneContainer;
-        [SerializeField, AssetsOnly] private GameObject _spaceNodePrefab;
-        [SerializeField, AssetsOnly] private GameObject _spaceNodeEdgePrefab;
-        [SerializeField, AssetsOnly] private GameObject _startNodePrefab;
-        [SerializeField, AssetsOnly] private GameObject _endNodePrefab;
+        [SerializeField, InlineEditor] private SpaceGraphGeneratorParams _generatorParams;
 
         [TitleGroup("Result")]
         [SerializeField, ReadOnly]
-        // [ShowInInspector]
+        // [ShowInInspector, ReadOnly]
         private SpaceGraph _spaceGraph;
-
-        [SerializeField, FoldoutGroup("Debug", expanded: false)] private bool _enableLogs = false;
-        [SerializeField, FoldoutGroup("Debug")] private bool _enableGizmos = true;
-        [SerializeField, FoldoutGroup("Debug")] private bool _showSamplePoints;
-        [SerializeField, FoldoutGroup("Debug")] private bool _showTriangulation;
-        [SerializeField, FoldoutGroup("Debug")] private bool _showResultGraph = true;
 
         [Button("Generate")]
         private void GenerateButton()
@@ -74,34 +55,34 @@ namespace BML.Scripts.SpaceGraph
 
         private void OnDrawGizmos()
         {
-            if (!_enableGizmos) return;
+            if (!_generatorParams.EnableGizmos) return;
             
             Gizmos.color = Color.white;
-            Gizmos.DrawWireCube(_bounds.center, _bounds.size);
+            Gizmos.DrawWireCube(_generatorParams.Bounds.center, _generatorParams.Bounds.size);
         }
 
         private void OnDrawGizmosSelected()
         {
-            if (!_enableGizmos)
+            if (!_generatorParams.EnableGizmos)
             {
                 // Always draw bounds when selected
                 Gizmos.color = Color.white;
-                Gizmos.DrawWireCube(_bounds.center, _bounds.size);
+                Gizmos.DrawWireCube(_generatorParams.Bounds.center, _generatorParams.Bounds.size);
 
                 return;
             }
 
-            if (_showSamplePoints && _samples != null)
+            if (_generatorParams.ShowSamplePoints && _samples != null)
             {
                 Gizmos.color = Color.yellow;
                 foreach (var vector2 in _samples)
                 {
-                    var worldPosition = _bounds.center + vector2.xoy();
+                    var worldPosition = _generatorParams.Bounds.center + vector2.xoy();
                     Gizmos.DrawSphere(worldPosition, 0.5f);
                 }
             }
             
-            if (_showTriangulation && _triangulation != null)
+            if (_generatorParams.ShowTriangulation && _triangulation != null)
             {
                 Gizmos.color = Color.yellow;
                 foreach (var cell in _triangulation.Cells)
@@ -117,20 +98,20 @@ namespace BML.Scripts.SpaceGraph
                 }
             }
 
-            if (_showResultGraph && _spaceGraph != null)
+            if (_generatorParams.ShowResultGraph && _spaceGraph != null)
             {
                 Gizmos.color = new Color(0.2f, 0.9f, 0.7f);
                 foreach (var vertex in _spaceGraph.Vertices)
                 {
-                    var worldPosition = _bounds.center + vertex.LocalPosition;
+                    var worldPosition = _generatorParams.Bounds.center + vertex.LocalPosition;
                     Gizmos.DrawSphere(worldPosition, 0.5f);
                 }
                 
                 Gizmos.color = new Color(0.2f, 0.9f, 0.7f);
                 foreach (var edge in _spaceGraph.Edges)
                 {
-                    var startPosition = _bounds.center + edge.Source.LocalPosition;
-                    var endPosition = _bounds.center + edge.Target.LocalPosition;
+                    var startPosition = _generatorParams.Bounds.center + edge.Source.LocalPosition;
+                    var endPosition = _generatorParams.Bounds.center + edge.Target.LocalPosition;
                     Gizmos.DrawLine(startPosition, endPosition);
                 }
             }
@@ -150,8 +131,12 @@ namespace BML.Scripts.SpaceGraph
 
             // Generate points
             // TODO inject fixed positions for the 'start' and 'end' points
-            var samples = UniformPoissonDiskSampler.SampleRectangle(_bounds.min.xz(), _bounds.max.xz(), _minimumDistance,
-                _pointsPerIteration);
+            var samples = UniformPoissonDiskSampler.SampleRectangle(
+                _generatorParams.Bounds.min.xz(), 
+                _generatorParams.Bounds.max.xz(), 
+                _generatorParams.MinimumDistance,
+                _generatorParams.PointsPerIteration
+            );
             _samples = samples; // DEBUG
             
             // TODO remove some points to make the level less uniform
@@ -159,10 +144,10 @@ namespace BML.Scripts.SpaceGraph
 
             // Generate connections between adjacent points
             var vertices = _samples.Select(v => new DefaultVertex { Position = v.ToDoubleArray() }).ToList();
-            var triangulation = MIConvexHull.DelaunayTriangulation<DefaultVertex, DefaultTriangulationCell<DefaultVertex>>.Create(vertices, _planeDistanceTolerance);
+            var triangulation = MIConvexHull.DelaunayTriangulation<DefaultVertex, DefaultTriangulationCell<DefaultVertex>>.Create(vertices, _generatorParams.PlaneDistanceTolerance);
             _triangulation = triangulation; // DEBUG
 
-            // Populate our "space graph" data structure with the points and edges 
+            // Populate our "space graph" data structure with the points and edges
             _spaceGraph = new SpaceGraph();
             var distinctCellVertices = triangulation.Cells
                 .SelectMany(cell => cell.Vertices
@@ -171,12 +156,12 @@ namespace BML.Scripts.SpaceGraph
                 .Select(position => new SpaceNode(
                     _spaceGraph,
                     VectorUtils.Vector2FromDoubleArray(position).xoy(),
-                    EnumUtils.Random<PopulationDensity>(Random.value),
-                    EnumUtils.Random<SoilFertility>(Random.value),
-                    EnumUtils.Random<FuelSupply>(Random.value),
-                    EnumUtils.Random<Disposition>(Random.value),
+                    _generatorParams.WeightedOptionsPopulationDensity.RandomWithWeights(Random.value),
+                    _generatorParams.WeightedOptionsSoilFertility.RandomWithWeights(Random.value),
+                    _generatorParams.WeightedOptionsFuelSupply.RandomWithWeights(Random.value),
+                    _generatorParams.WeightedOptionsDisposition.RandomWithWeights(Random.value),
                     Random.value
-                )).ToList();;
+                )).ToList();
             var allCellEdges = triangulation.Cells
                 .SelectMany(cell => cell.Vertices
                     .Where((v, i) => i < cell.Vertices.Length - 1)
@@ -214,13 +199,13 @@ namespace BML.Scripts.SpaceGraph
         [Button]
         private void DestroySceneObjects()
         {
-            if (_sceneContainer.Value == null)
+            if (_generatorParams.SceneContainer.Value == null)
             {
                 Debug.LogError("No scene container assigned.");
                 return;
             }
             
-            GameObjectUtils.DestroyChildren(_sceneContainer.Value);
+            GameObjectUtils.DestroyChildren(_generatorParams.SceneContainer.Value);
         }
 
         [Button]
@@ -228,7 +213,7 @@ namespace BML.Scripts.SpaceGraph
         {
             DestroySceneObjects();
 
-            if (_sceneContainer.Value == null)
+            if (_generatorParams.SceneContainer.Value == null)
             {
                 Debug.LogError("No scene container assigned.");
                 return;
@@ -238,18 +223,18 @@ namespace BML.Scripts.SpaceGraph
             foreach (var spaceNode in _spaceGraph.Vertices)
             {
                 // Pick object to spawn (normal node, start node, end node, etc.)
-                GameObject prefabToSpawn = _spaceNodePrefab;
+                GameObject prefabToSpawn = _generatorParams.SpaceNodePrefab;
                 if (spaceNode.IsStartNode())
                 {
-                    prefabToSpawn = _startNodePrefab;
+                    prefabToSpawn = _generatorParams.StartNodePrefab;
                 } 
                 else if (spaceNode.IsEndNode())
                 {
-                    prefabToSpawn = _endNodePrefab;
+                    prefabToSpawn = _generatorParams.EndNodePrefab;
                 }
                 
                 // Instantiate object
-                var spaceNodeSceneObject = GameObjectUtils.SafeInstantiate(true, prefabToSpawn, _sceneContainer.Value);
+                var spaceNodeSceneObject = GameObjectUtils.SafeInstantiate(true, prefabToSpawn, _generatorParams.SceneContainer.Value);
                 
                 // Position and align
                 var worldPosition = GetWorldPosition(spaceNode);
@@ -265,7 +250,7 @@ namespace BML.Scripts.SpaceGraph
             {
                 // Instantiate object
                 var spaceNodeEdgeSceneObject =
-                    GameObjectUtils.SafeInstantiate(true, _spaceNodeEdgePrefab, _sceneContainer.Value);
+                    GameObjectUtils.SafeInstantiate(true, _generatorParams.SpaceNodeEdgePrefab, _generatorParams.SceneContainer.Value);
 
                 // Assign source SpaceNode data to the scene object
                 var spaceNodeEdgeComponent = spaceNodeEdgeSceneObject.GetComponentInChildren<SpaceNodeEdgeComponent>();
@@ -279,7 +264,7 @@ namespace BML.Scripts.SpaceGraph
 
         private Vector3 GetWorldPosition(SpaceNode spaceNode)
         {
-            return _bounds.center + spaceNode.LocalPosition;
+            return _generatorParams.Bounds.center + spaceNode.LocalPosition;
         }
 
         public void PropagatePlayerOccupied(System.Object obj)
