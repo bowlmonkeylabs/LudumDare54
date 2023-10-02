@@ -182,6 +182,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ResponseNoParams:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &38405196
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generatorParams: {fileID: 11400000, guid: 3c7994122c1d2f144abfaa32785f02d8, type: 2}
+  _spaceGraph: {}
 --- !u!4 &38405198
 Transform:
   m_ObjectHideFlags: 0
@@ -564,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1217911287, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 8.41659
+      value: 8.499561
       objectReference: {fileID: 0}
     - target: {fileID: 1231092849, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1248,6 +1252,7 @@ GameObject:
   - component: {fileID: 1255203515}
   - component: {fileID: 1255203514}
   - component: {fileID: 1255203518}
+  - component: {fileID: 1255203519}
   m_Layer: 0
   m_Name: WorldDialogueActor
   m_TagString: Untagged
@@ -1471,6 +1476,37 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1255203519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255203513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09cf8509d61560d46927a407964ec515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c6cd0ebaf46aa304ca149457097dc851, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
+  ResponseNoParams:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1255203514}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -7,6 +7,7 @@ namespace BML.ScriptableObjectCore.Scripts.Events
     {
         public DynamicGameEvent Event;
         public UnityEvent<System.Object> Response;
+        public UnityEvent ResponseNoParams;
 
         private void OnEnable()
         { Event.RegisterListener(this); }
@@ -15,6 +16,6 @@ namespace BML.ScriptableObjectCore.Scripts.Events
         { Event.UnregisterListener(this); }
 
         public void OnEventRaised(System.Object obj)
-        { Response.Invoke(obj); }
+        { Response.Invoke(obj); ResponseNoParams.Invoke(); }
     }
 }
