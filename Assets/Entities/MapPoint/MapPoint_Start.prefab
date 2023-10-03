@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8891591187312575624}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4910865910466406772
 MonoBehaviour:
@@ -122,6 +122,18 @@ PrefabInstance:
     - target: {fileID: 1188237854078605460, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370482054614553249, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620047520209601894, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.000035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620047520209601894, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00027126737
       objectReference: {fileID: 0}
     - target: {fileID: 6744463659562477930, guid: dbbbacd0a83f52f40868ab8df8d599d2, type: 3}
       propertyPath: color.a

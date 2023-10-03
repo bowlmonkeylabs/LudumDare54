@@ -819,11 +819,11 @@ MonoBehaviour:
     - title: Title
       value: TripSummary
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Actor
       value: 1
       type: 5
@@ -833,7 +833,7 @@ MonoBehaviour:
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
-      useOverrides: 0
+      useOverrides: 1
       overrideSubtitleSettings: 0
       showNPCSubtitlesDuringLine: 1
       showNPCSubtitlesWithResponses: 1
@@ -846,7 +846,7 @@ MonoBehaviour:
       defaultSequence: 
       defaultPlayerSequence: 
       defaultResponseMenuSequence: 
-      overrideInputSettings: 0
+      overrideInputSettings: 1
       alwaysForceResponseMenu: 1
       includeInvalidEntries: 0
       responseTimeout: 0

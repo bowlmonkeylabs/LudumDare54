@@ -21,6 +21,8 @@ namespace BML.Scripts.SpaceGraph
         [SerializeField] private Color _colorReachable;
         [SerializeField] private Color _colorHoverReachable;
         [SerializeField] private Color _colorUnreachable;
+        [SerializeField] private Color _colorStart;
+        [SerializeField] private Color _colorEnd;
         [SerializeField] private IntVariable _fuelAmount;
         [SerializeField] private UnityEvent _onNavigate;
         [SerializeField] private UnityEvent _onFuelCheckFailed;
@@ -74,13 +76,24 @@ namespace BML.Scripts.SpaceGraph
 
         public void UpdateDisplay()
         {
-            if (SpaceNode.ParentGraph == null || this.SpaceNode.IsStartNode() || this.SpaceNode.IsEndNode())
+            if (SpaceNode.ParentGraph == null)
             {
                 return;
             }
             
             Color result = _colorUnreachable;
-            if (SpaceNode.PlayerOccupied)
+            if (SpaceNode.IsStartNode() || SpaceNode.IsEndNode())
+            {
+                if (_hoverInteraction.IsHovered)
+                {
+                    result = _colorHoverReachable;
+                }
+                else
+                {
+                    result = (SpaceNode.IsStartNode() ? _colorStart : _colorEnd);
+                }
+            }
+            else if (SpaceNode.PlayerOccupied)
             {
                 result = _colorExplored;
             }

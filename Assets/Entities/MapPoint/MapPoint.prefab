@@ -52,7 +52,9 @@ MonoBehaviour:
   _colorExplored: {r: 0.3270737, g: 0.3962264, b: 0.3532576, a: 1}
   _colorReachable: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   _colorHoverReachable: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
-  _colorUnreachable: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+  _colorUnreachable: {r: 0.02969999, g: 0.07754999, b: 0.29700002, a: 1}
+  _colorStart: {r: 0.81960785, g: 0.27450982, b: 0.22745098, a: 1}
+  _colorEnd: {r: 0.32941177, g: 0.81960785, b: 0.22745098, a: 1}
   _fuelAmount: {fileID: 11400000, guid: 48f2294361ca37344bf3bdd81438f961, type: 2}
   _onNavigate:
     m_PersistentCalls:
@@ -999,6 +1001,10 @@ PrefabInstance:
     - target: {fileID: 8705446826158675923, guid: 08924a74a8d434f47adee56c94f31350, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705446826158675923, guid: 08924a74a8d434f47adee56c94f31350, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8705446826158675923, guid: 08924a74a8d434f47adee56c94f31350, type: 3}
       propertyPath: ShapeProperties.FillColor.rgba

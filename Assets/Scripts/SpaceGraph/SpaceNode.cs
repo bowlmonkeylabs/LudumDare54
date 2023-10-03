@@ -27,8 +27,8 @@ namespace BML.Scripts.SpaceGraph
 
     public enum Disposition
     {
-        Stingy,
-        Generous,
+        Independent,
+        Friendly,
         Cautious,
         Confused,
         Unreadable,
